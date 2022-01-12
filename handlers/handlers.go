@@ -31,6 +31,9 @@ func Manejadores() {
 	router.HandleFunc("/bajaRelacion", middlew.ChequeoBD(middlew.ValidoJWT(routers.BajaRelacion))).Methods("DELETE")
 	router.HandleFunc("/consultarRelacion", middlew.ChequeoBD(middlew.ValidoJWT(routers.ConsultarRelacion))).Methods("GET")
 
+	router.HandleFunc("/listarUsuarios", middlew.ChequeoBD(middlew.ValidoJWT(routers.ListarUsuarios))).Methods("GET")
+	router.HandleFunc("/listarTweets", middlew.ChequeoBD(middlew.ValidoJWT(routers.LeoTweetsRelacion))).Methods("GET")
+
 	PORT := os.Getenv("PORT")
 	if PORT == "" {
 		PORT = "8080"
